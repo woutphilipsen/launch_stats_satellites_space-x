@@ -3,6 +3,8 @@ const graphqlHTTP  = require('express-graphql');
 // go to github.com/graphql/express-graphql
 // look at simple setup
 const axios = require('axios');
+// Bring in cors
+const cors = require('cors');
 // link to the file schema.js to get all the info about the 
 // schema that is required and where all the graphql stuff goes
 const schema = require('./schema.js');
@@ -11,6 +13,9 @@ const log = console.log;
 
 // copied from the github page
 const app = express();
+
+// Allow cross-origin
+app.use(cors());
 
 // end-point /graphql => gonna run, graphqlHTTP
 // then we gonna point to our schema
